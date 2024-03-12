@@ -133,7 +133,7 @@ span.psw {
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate"  method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -147,7 +147,7 @@ span.psw {
 
       
         
-      <button type="submit">Đăng nhập</button>
+    <button type="submit" onclick="return checkLogin()">Đăng nhập</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -161,6 +161,20 @@ span.psw {
 </div>
 
 <script>
+    function checkLogin() {
+  var username = document.getElementsByName('uname')[0].value;
+  var password = document.getElementsByName('psw')[0].value;
+
+  if(username === 'admin' && password === 'admin') {
+    alert('Đăng nhập thành công!');
+    return true;
+  } else {
+    alert('Tên đăng nhập hoặc mật khẩu không đúng!');
+    return false;
+  }
+}
+
+
 // Get the modal
 var modal = document.getElementById('id01');
 
